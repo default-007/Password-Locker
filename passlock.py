@@ -31,3 +31,22 @@ class User:
         Method to delete a saved account
         """
         User.user_list.remove(self)
+
+
+class Credentials:
+    """
+    Create a new Credentials class to create new objects
+    """
+
+    credentials_list = []
+
+    @classmethod
+    def verify_user(cls, username, password):
+        """
+        Method to verify if in the user_list
+        """
+        a_user = ""
+        for user in User.user_list:
+            if(user.username == username and user.password == password):
+                a_user == user.username
+            return a_user
