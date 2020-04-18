@@ -1,4 +1,5 @@
 import string
+import random
 import pyperclip
 
 
@@ -22,3 +23,10 @@ class User:
         Method to save a new user into the user list
         """
         User.user_list.append(self)
+
+    @classmethod
+    def display_user(cls):
+        """
+        Method that returns the contact list
+        """
+        return cls.user_list
