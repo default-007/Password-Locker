@@ -29,5 +29,25 @@ class TestUser(unittest.TestCase):
         self.assertEqual(len(User.user_list), 1)
 
 
+class TestCredentials(unittest.TestCase):
+    """
+    Test class for Credentials class
+    """
+
+    def setUp(self):
+        """
+        Method that runs before individual credential test are run
+        """
+        self.new_credential = Credentials('Gmail', 'default-007', 'qwerty')
+
+    def test_init(self):
+        """
+        Test Case to check if new Credentials are initialised correctly.
+        """
+        self.assertEqual(self.new_credential.account, "Gmail")
+        self.assertEqual(self.new_credential.userName, "default-007")
+        self.assertEqual(self.new_credential.password, "qwerty")
+
+
 if __name__ == "__main__":
     unittest.main()
