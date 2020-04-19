@@ -48,11 +48,36 @@ class TestCredentials(unittest.TestCase):
         self.assertEqual(self.new_credential.userName, "default-007")
         self.assertEqual(self.new_credential.password, "qwerty")
 
-    def save_credential_test(self):
+    def test_save_credential(self):
         """
         Test if credential list has been saved into list
         """
         self.new_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list), 1)
+
+    def tearDown(self):
+        """
+        Clean up after each test case
+        """
+        Credentials.credentials_list = []
+
+    def test_multiple_account(self):
+        """
+        Test if multiple accounts can be saved
+        """
+        self.new_credential.save_details()
+        test_credential = Credentials("Twitter", "default-007", "asdfg")
+        test_credential.save_details()
+        self.assertEqual(len(Credentials.credentials_list), 2)
+
+    def test_delete_credential(self):
+        """
+        Test if account credentials can be removed
+        """
+        self.new_credential.save_details()
+        test_credential = Credentials("Twitter", "default-007", "asdfg")
+        test_credential.save_details()
+        self.new_credential.delete_credentials()
         self.assertEqual(len(Credentials.credentials_list), 1)
 
 
