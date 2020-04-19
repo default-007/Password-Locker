@@ -76,7 +76,7 @@ class Credentials():
         Credentials.credentials_list.remove(self)
 
     @classmethod
-    def find_credentials(cls, account):
+    def search_credential(cls, account):
         """
         Checks if account.name and return credentials matching the account
         """
@@ -93,3 +93,11 @@ class Credentials():
             if credential.account == account:
                 return True
         return False
+
+    @classmethod
+    def copy_password(cls, account):
+        """
+        Copy password of account found
+        """
+        logged_credential = Credentials.search_credential(account)
+        pyperclip.copy(logged_credential.password)
