@@ -1,6 +1,7 @@
 import random
 import string
 import pyperclip
+from user import User
 
 
 class Credentials():

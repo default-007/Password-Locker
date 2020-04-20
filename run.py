@@ -1,4 +1,5 @@
-from passlock import User, Credentials
+from user import User
+from credential import Credentials
 
 
 def create_new_user(username, password):
@@ -9,7 +10,29 @@ def create_new_user(username, password):
     return new_user
 
 
-def passlocker():
+def save_user(user):
+    """
+    Function to save a new user
+    """
+    user.save_user()
+
+
+def display_user():
+    """
+    Display user
+    """
+    return User.display_user()
+
+
+def login_user(username, password):
+    """
+    Check if uesr exist and login the user
+    """
+    check_user = Credentials.verify_user(username, password)
+    return check_user
+
+
+def main():
     print("Hello Welcome to your Accounts Password Store...\n Please enter one of the following to proceed.\n CA ---  Create New Account  \n LI ---  Have An Account  \n")
     short_code = input("").lower().strip()
     if short_code == "ca":
@@ -127,4 +150,4 @@ def passlocker():
 
 
 if __name__ == '__main__':
-    passlocker()
+    main()
