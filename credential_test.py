@@ -1,32 +1,5 @@
 import unittest
-from passlock import User
-from passlock import Credentials
-
-
-class TestUser(unittest.TestCase):
-    """
-    A Test class that defines test cases for the User class.
-    """
-
-    def setUp(self):
-        """
-        Method that runs before each individual test methods run.
-        """
-        self.new_user = User('OwitiCharles', 'XyZ3thf1')
-
-    def test_init(self):
-        """
-        Check if the object has been initialized correctly
-        """
-        self.assertEqual(self.new_user.username, 'OwitiCharles')
-        self.assertEqual(self.new_user.password, 'XyZ3thf1')
-
-    def test_save_user(self):
-        """
-        Check if a new user instance has been saved into the User list
-        """
-        self.new_user.save_user()
-        self.assertEqual(len(User.user_list), 1)
+from credential import Credentials
 
 
 class TestCredentials(unittest.TestCase):
@@ -89,6 +62,24 @@ class TestCredentials(unittest.TestCase):
         test_credential.save_details()
         the_credential = Credentials.search_credential("Twitter")
         self.assertEqual(the_credential.account, test_credential.account)
+
+    def test_credential_exist(self):
+        """
+        check if we can return a true or false based on whether we find or can't find the credential.
+        """
+        self.new_credential.save_details()
+        the_credential = Credentials("Twitter", "mikeycharles", "Mfh45hfk")
+        the_credential.save_details()
+        credential_is_found = Credentials.existing_credential("Twitter")
+        self.assertTrue(credential_is_found)
+
+    def test_display_all_saved_credentials(self):
+        '''
+        displays all the credentials that has been saved by the user
+        '''
+
+        self.assertEqual(Credentials.display_credentials(),
+                         Credentials.credentials_list)
 
 
 if __name__ == "__main__":

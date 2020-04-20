@@ -62,6 +62,13 @@ class Credentials():
         return False
 
     @classmethod
+    def display_credentials(cls):
+        """
+        Method that returns all items in the credentials list
+        """
+        return cls.credentials_list
+
+    @classmethod
     def copy_password(cls, account):
         """
         Copy password of account found
@@ -69,7 +76,7 @@ class Credentials():
         logged_credential = Credentials.search_credential(account)
         pyperclip.copy(logged_credential.password)
 
-    def generate_password(stringLength=10):
+    def generatepassword(stringLength=10):
         """
         Generate random password with letters and numbers
         """
