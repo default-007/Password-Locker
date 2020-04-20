@@ -69,9 +69,9 @@ The user would like to.... :
 
 ## Contact Information
 
-If you have any question or contributions, please email me at [mikeycharlesm7@gmail.com]
+If you have any question or contributions, please email me at [brianokola@@gmail.com]
 
 ## License
 
 - _MIT License:_
-- Copyright (c) 2019 **Owiti Charles**
+- Copyright (c) 2019 **Brian Otieno**
