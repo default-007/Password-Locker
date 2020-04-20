@@ -32,6 +32,35 @@ def login_user(username, password):
     return check_user
 
 
+def create_new_credential(account, userName, password):
+    """
+    Create new user credentials for a user
+    """
+    new_credential = Credentials(account, userName, password)
+    return new_credential
+
+
+def save_credentials(credentials):
+    """
+    Save credentials to list
+    """
+    credentials.save_deails()
+
+
+def display_accounts_details():
+    """
+    Function that returns all the saved credential.
+    """
+    return Credentials.display_credentials()
+
+
+def delete_credential(credentials):
+    """
+    Function to delete a Credentials from credentials list
+    """
+    credentials.delete_credentials()
+
+
 def main():
     print("Hello Welcome to your Accounts Password Store...\n Please enter one of the following to proceed.\n CA ---  Create New Account  \n LI ---  Have An Account  \n")
     short_code = input("").lower().strip()
