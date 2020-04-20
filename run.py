@@ -44,7 +44,7 @@ def save_credentials(credentials):
     """
     Save credentials to list
     """
-    credentials.save_deails()
+    credentials.save_details()
 
 
 def display_accounts_details():
