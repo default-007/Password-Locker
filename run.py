@@ -92,9 +92,9 @@ def copy_password(account):
 
 
 def main():
-    print("Hello Welcome to the PassLocker...\n Please enter one of the following to proceed.\n NA ---  New Account  \n EA ---  Existing Account  \n")
-    code = input("").lower().strip()
-    if code == "na":
+    print("Welcome to the PassLocker...\n Please the code to navigate through the application.\n NA ---  New Account  \n EA ---  Existing Account  \n")
+    nav_code = input("").lower().strip()
+    if nav_code == "na":
         print("Sign Up")
         print('*' * 50)
         username = input("User_name: ")
@@ -112,9 +112,9 @@ def main():
         save_user(create_new_user(username, password))
         print("*"*85)
         print(
-            f"Hello {username}, Your account has been created succesfully! Your password is: {password}")
+            f"Hello {username}, Account created succesfully! Your password is: {password}")
         print("*"*85)
-    elif code == "ea":
+    elif nav_code == "ea":
         print("*"*50)
         print("Enter your User name and your Password to log in:")
         print('*' * 50)
@@ -126,8 +126,8 @@ def main():
             print('\n')
     while True:
         print("Use these short codes:\n CC - Create a new credential \n DC - Display Credentials \n FC - Find a credential \n GP - Generate A randomn password \n D - Delete credential \n EX - Exit the application \n")
-        code = input().lower().strip()
-        if code == "cc":
+        nav_code = input().lower().strip()
+        if nav_code == "cc":
             print("Create New Credential")
             print("."*20)
             print("Account name ....")
@@ -152,7 +152,7 @@ def main():
             print(
                 f"Account Credential for: {account} - UserName: {userName} - Password:{password} created succesfully")
             print('\n')
-        elif code == "dc":
+        elif nav_code == "dc":
             if display_accounts_details():
                 print("Here's your list of acoounts: ")
 
@@ -164,9 +164,9 @@ def main():
                     print('_' * 30)
                 print('*' * 30)
             else:
-                print("You don't have any credentials saved yet..........")
-        elif code == "fc":
-            print("Enter the Account Name you want to search for")
+                print("No Credentials saved......")
+        elif nav_code == "fc":
+            print("Enter the Account Name to search")
             search_name = input().lower()
             if search_credential(search_name):
                 find_credential = search_credential(search_name)
@@ -178,7 +178,7 @@ def main():
             else:
                 print("That Credential does not exist")
                 print('\n')
-        elif code == "d":
+        elif nav_code == "d":
             print("Enter the account name of the Credentials you want to delete")
             search_name = input().lower()
             if search_credential(search_name):
@@ -191,14 +191,14 @@ def main():
                 print('\n')
             else:
                 print(
-                    "That Credential you want to delete does not exist in your store yet")
+                    "Credential to be deleted does not exist")
 
-        elif code == 'gp':
+        elif nav_code == 'gp':
 
             password = generate_Password()
             print(
                 f" {password} Has been generated succesfull. You can proceed to use it to your account")
-        elif code == 'ex':
+        elif nav_code == 'ex':
             print("Thanks for using passwords store manager.. See you next time!")
             break
         else:
